@@ -7,6 +7,7 @@
       ./hardware-configuration.nix
       ./modules/nixos/gaming.nix
       ./modules/nixos/immich.nix
+      ./modules/nixos/couchdb.nix
       #./modules/nixos/nextcloud.nix
       #./modules/nixos/server_setup.nix
       inputs.elanmoc2.nixosModules.elanmoc2
