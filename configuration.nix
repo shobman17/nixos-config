@@ -182,6 +182,11 @@
       persistent = true;
     };
   };
+
+  system.autoUpgrade = {
+    enable = true;
+    dates = "weekly";
+  };
   
   # Prevent laptop from sleepign when on AC power and lid is closed
   services.logind.lidSwitchExternalPower = "suspend";
