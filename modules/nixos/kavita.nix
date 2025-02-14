@@ -3,7 +3,7 @@
 let
   mediaLocation = "/var/lib/kavita";
   host = "0.0.0.0"; 
-  port = 5000;  # kavita internal port
+  port = 6969;  # kavita internal port
   serverLocalIP = "192.168.0.169";
 in {
 
@@ -13,8 +13,10 @@ in {
     enable = true;
     dataDir = mediaLocation;
     tokenKeyFile = "/etc/kavita-token";
-    settings.port = port;
-    settings.IpAddress = host;
+    settings = {
+        Port = port;
+        IpAddresses = host;
+      };
   };
 
   # Create photos directory

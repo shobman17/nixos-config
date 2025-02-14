@@ -7,8 +7,8 @@
       ./hardware-configuration.nix
       ./modules/nixos/gaming.nix
       ./modules/nixos/immich.nix
-      ./modules/nixos/couchdb.nix
-      ./modules/nixos/kavita.nix
+      #./modules/nixos/couchdb.nix
+      #./modules/nixos/kavita.nix
       inputs.elanmoc2.nixosModules.elanmoc2
     ];
 
@@ -110,7 +110,7 @@
 
   # Enable docker
   virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = ["shob"];
+  # users.extraGroups.docker.members = ["shob"];
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
