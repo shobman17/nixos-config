@@ -22,13 +22,14 @@
     let 
 
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
       inherit (self) outputs; # clean this up maybe?
 
     in {
 
       # Custom overlays
       overlays = import ./overlays {inherit inputs;};
+
+      packages = import ./pkgs nixpkgs.legacyPackages.${system};
       
       # Output for the system configuration 
       nixosConfigurations = {
@@ -36,6 +37,7 @@
           specialArgs = {inherit inputs outputs;};
           modules = [
             ./configuration.nix
+            inputs.elanmoc2.nixosModules.elanmoc2
           ];
         };
       };
@@ -47,6 +49,7 @@
           extraSpecialArgs = {inherit inputs outputs;};
           modules = [ 
             ./home.nix
+            inputs.stylix.homeManagerModules.stylix 
           ];
         };
       };

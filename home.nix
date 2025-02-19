@@ -3,9 +3,8 @@
 {
 
   imports = [
-    inputs.stylix.homeManagerModules.stylix
-    ./modules/home-manager/theme_nord.nix
-    ./modules/home-manager/terminal.nix
+    ./custom/terminal.nix
+    ./custom/theme_rose-pine-moon.nix
   ];
 
   home.username = "shob";
@@ -43,7 +42,6 @@
     fastfetch
     bat
     killall
-    pywal16
     imagemagick
     usbutils
     pciutils
@@ -51,7 +49,7 @@
     unzip
 
     # acad apps
-    distrobox
+    #distrobox
     obsidian
     kdePackages.okular
     pdfarranger
@@ -83,9 +81,6 @@
     lutris
     stable.desmume
     mgba
-    ryujinx
-    cemu
-    solarus
 
 
     # python (should move this to a nix shell)
@@ -111,13 +106,8 @@
     gtkwave
 
     # misc 
-    readline
-    # signal-desktop
-    # google-chat-linux
-    beeper
     immich-go
-    tuxguitar
-    persepolis
+    stable.beeper
 
   ];
 
@@ -159,7 +149,7 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs; [
-      vscode-extensions.ms-azuretools.vscode-docker
+      # vscode-extensions.ms-azuretools.vscode-docker
     ];
   };
 

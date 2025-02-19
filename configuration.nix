@@ -5,11 +5,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./modules/nixos/gaming.nix
-      ./modules/nixos/immich.nix
-      #./modules/nixos/couchdb.nix
-      #./modules/nixos/kavita.nix
-      inputs.elanmoc2.nixosModules.elanmoc2
+      ./custom/gaming.nix
     ];
 
   # Bootloader.
@@ -95,7 +91,7 @@
   users.users.shob = {
     isNormalUser = true;
     description = "Shobhit Maheshwari";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "lp" "scanner"];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "lp" "scanner" "docker"];
     packages = with pkgs; [
       home-manager
     ];
@@ -103,17 +99,20 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
-  # enable virt-d virtualisation
-  # virtualisation.libvirtd.enable = true;
-  # programs.virt-manager.enable = true;
 
+  nixpkgs.overlays = [
+    outputs.overlays.additions
+    outputs.overlays.modifications
+    outputs.overlays.stable-packages
+  ];
+  
   # Enable docker
-  virtualisation.docker.enable = true;
-  # users.extraGroups.docker.members = ["shob"];
-  virtualisation.docker.rootless = {
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
+    # rootless = {
+    #   enable = true;
+    #   setSocketVariable = true;
+    # };
   };
 
   # List packages installed in system profile. To search, run:

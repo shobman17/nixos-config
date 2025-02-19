@@ -1,14 +1,32 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: 
+
+let
+
+  theme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+
+  image-src-shob = pkgs.fetchFromGitHub {
+      owner = "shobman17";
+      repo = "wallpapers";
+      rev = "fb9805c484ce5d2bdbb377dd38562022a0f7fa9c";
+      hash = "sha256-kg7imE7NigIT6PUIWJUxZxPjaAbEVmHcgvQfYA3ycmw=";
+    } + "/an_astronaut_playing_a_piano.png";
+
+  image-src-monterey = pkgs.fetchFromGitHub {
+      owner = "vinceliuice";
+      repo = "WhiteSur-wallpapers";
+      rev = "06f522be3657cab4e2939b5ecab269242c731abe";
+      hash = "sha256-BKWk8KnCWfKwf0I2oz9RDlQFtfjyJidkDQLwLMVwyXo=";
+    } + "/1080p/Monterey.jpg";
+
+in {
 
   gtk.enable = true;
-
-  qt.enable = true;
 
   stylix = {
     
     enable = true;
-    image = /home/shob/Documents/backgrounds/an_astronaut_playing_a_piano.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+    image = image-src-monterey;
+    base16Scheme = theme;
     polarity = "dark";
     targets.neovim.enable = false;
 
