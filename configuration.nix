@@ -6,6 +6,8 @@
     [ 
       ./hardware-configuration.nix
       ./custom/gaming.nix
+      ./custom/immich.nix
+      ./custom/theme_rose-pine-moon.nix
     ];
 
   # Bootloader.

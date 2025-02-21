@@ -13,7 +13,10 @@
 
     stylix.url = "github:danth/stylix";
 
-    elanmoc2.url = "github:sandptel/elanmoc2";
+    elanmoc2 = {
+      url = "github:sandptel/elanmoc2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
@@ -38,6 +41,7 @@
           modules = [
             ./configuration.nix
             inputs.elanmoc2.nixosModules.elanmoc2
+            inputs.stylix.nixosModules.stylix 
           ];
         };
       };

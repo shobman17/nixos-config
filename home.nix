@@ -5,6 +5,7 @@
   imports = [
     ./custom/terminal.nix
     ./custom/theme_rose-pine-moon.nix
+    ./custom/theme_rose-pine-moon_extras.nix
   ];
 
   home.username = "shob";
@@ -104,10 +105,10 @@
     iverilog
     verilator
     gtkwave
+    ghdl
 
     # misc 
     immich-go
-    stable.beeper
 
   ];
 
@@ -115,6 +116,7 @@
   };
 
   home.sessionVariables = {
+    TEST_VAR = 1;
   };
 
   # Let Home Manager install and manage itself.
@@ -191,21 +193,7 @@
         ];
       };
 
-
     };
   };
 
-  # Desktop entries
-  # xdg.desktopEntries = {
-  #   
-  #   jdownloader = {
-  #     name = "JDownloader";
-  #     genericName = "Download Manager";
-  #     exec = "java -jar /home/shob/Downloads/JDownloader/JDownloader.jar";
-  #     terminal = false;
-  #     categories = ["Application" "Network"];
-  #     icon = "/home/shob/Downloads/JDownloader/Jdownloader.png";
-  #   };
-
-  # }; 
 }

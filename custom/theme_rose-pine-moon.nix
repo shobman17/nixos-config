@@ -2,7 +2,7 @@
 
 let
 
-  theme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+  theme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
   image-src-shob = pkgs.fetchFromGitHub {
       owner = "shobman17";
@@ -18,29 +18,27 @@ let
       hash = "sha256-BKWk8KnCWfKwf0I2oz9RDlQFtfjyJidkDQLwLMVwyXo=";
     } + "/1080p/Monterey.jpg";
 
-in {
+  image-src-rose-pine = pkgs.fetchFromGitHub {
+      owner = "rose-pine";
+      repo = "wallpapers";
+      rev = "e3d960d956c0d8dced14152e6df1c76b7ed3e7d2";
+      hash = "sha256-/+A5cvgBZ027/zmc04Ew2yus3qJVEQoys5d6ciZvZYs=";
+    } + "/moon.jpg";
 
-  gtk.enable = true;
+in {
 
   stylix = {
     
     enable = true;
-    image = image-src-monterey;
+    image = image-src-rose-pine;
     base16Scheme = theme;
     polarity = "dark";
-    targets.neovim.enable = false;
 
     cursor = {
       package = pkgs.capitaine-cursors-themed;
       name = "Capitaine Cursors (Palenight) - White";
       size = 32;
     };
-
-    iconTheme = {
-      enable = true;
-      package = pkgs.rose-pine-icon-theme;
-      dark = "rose-pine";
-      };
 
     fonts = {
       serif = {

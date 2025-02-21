@@ -1,4 +1,4 @@
-{config, pkgs, ...}: {
+{config, pkgs, lib, ...}: {
 
   programs.terminator = {
     
@@ -48,40 +48,61 @@
     };
   };
 
+  programs.starship = {
+    enable = true;
+    settings = {
+      "$schema" = "https://starship.rs/config-schema.json";
+      
+      format = lib.concatStrings [
+        "$os"
+        "$username"
+        "$all"
+      ];
+
+      os = {
+        disabled = false;
+        symbols = {
+          NixOS ="󱄅  ";
+        };
+      };
+
+      username = {
+        show_always = true;
+      };
+
+      command_timeout = 20;
+
+      git_status = {
+        disabled = true;
+      };
+
+    };
+  };
+
 
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    sessionVariables = {
-      
+
+    shellAliases = {
+      wassup = "ps auxcf";
     };
+
+    sessionVariables = {
+      TERMINAL = "kitty";
+      BROWSER = "brave";
+      TEST_FAKE = 1;
+    };
+
     initExtra = ''
-
-      export EDITOR="nvim";
-      export TERMINAL="kitty";
-      export BROWSER="brave";
-      export QT_QPA_PLATFORM="wayland";
-
-      export NIXPKGS_ALLOW_UNFREE=1;
       
       # Load __git_ps1 bash command.
-      . /home/shob/.nix-profile/share/git/contrib/completion/git-prompt.sh
+      # . /home/shob/.nix-profile/share/git/contrib/completion/git-prompt.sh
       # Also load git command completions for bash.
-      . /home/shob/.nix-profile/share/git/contrib/completion/git-completion.bash
+      # . /home/shob/.nix-profile/share/git/contrib/completion/git-completion.bash
 
       # Show git branch status in terminal shell.
-      export PS1='\[\e[1;31m\](\u)\[\e[1;34m\][\w]\[\e[0;33m\]$(__git_ps1 "(%s)")\[\e[0m\]\\$ '
-      # export PS1='$(tput bold)$(tput setaf 11)$(tput setab 3) \u $(tput sgr0)$(tput setaf 3)$(tput setab 11) \w $(tput setaf 11)$(tput setab 0)$(tput sgr0)$(__git_ps1 " $(tput setaf 6)%s$(tput sgr0) ") '
-
-      # Create a separate prompt for distrobox
-      # Check if the current host has a container_ID
-      if (env | grep -iq 'CONTAINER_ID'); then 
-      # Customize PS1 for distrobox
-        PS1='\e[1;31m[$CONTAINER_ID]\e[1;34m(\w)\e[0m]\$ ' 
-      fi
-
-      # View all processes in a fancy way
-      alias wassup="ps auxcf"
+      # export PS1='\[\e[1;31m\](\u)\[\e[1;34m\][\w]\[\e[0;33m\]$(__git_ps1 "(%s)")\[\e[0m\]\\$ '
     '';
   };
  
