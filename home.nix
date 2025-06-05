@@ -3,8 +3,8 @@
 {
   imports = [
     ./custom/terminal.nix
-    ./custom/theme_material_common.nix
-    ./custom/theme_material_hm.nix
+    ./custom/theme_common.nix
+    ./custom/theme_hm.nix
   ];
 
   home.username = "shob";
@@ -38,15 +38,9 @@
     lf
     fzf
     xsel
-    dmidecode
     fastfetch
     bat
-    killall
     imagemagick
-    usbutils
-    pciutils
-    zip
-    unzip
 
 # acad apps
     distrobox
@@ -86,7 +80,7 @@
         vba-m 
         desmume
         swanstation
-        pcsx2
+        ppsspp
       ]
     ))
     hmcl

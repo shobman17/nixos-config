@@ -8,10 +8,9 @@
       ./custom/gaming.nix
       ./custom/battery_optimisations.nix
       ./custom/immich.nix
-      ./custom/kavita.nix
+      # ./custom/kavita.nix
       ./custom/syncthing.nix
-      # ./custom/filebrowser.nix
-      ./custom/theme_material_common.nix
+      ./custom/theme_common.nix
       ./custom/theme_nixos.nix
     ];
 

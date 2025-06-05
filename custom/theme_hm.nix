@@ -20,15 +20,4 @@
     };
   };
 
-  # services.wpaperd = {
-  #   enable = true;
-  #   settings = {
-  #     default = {
-  #       path = "/home/shob/Documents/wallpapers";
-  #       duration = "30m";
-  #       mode = "center";
-  #     };
-  #   };
-  # };
-
 }

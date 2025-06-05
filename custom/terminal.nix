@@ -298,7 +298,7 @@
       abd_dev = "$EDITOR /home/shob/Desktop/acads/BTP/repos/StudentRepo/students/";
       nc_dev = "$EDITOR /home/shob/nixos-config/";
       nrs = "sudo nixos-rebuild switch";
-      hms = "home-manager switch";
+      hms = "home-manager -b bck switch";
       nfu = "nix flake update --flake /home/shob/nixos-config";
       vivado_dev = "nix develop path:/home/shob/nix-environments#xilinx-vitis";
       full_upgrade = "nfu && nrs && hms";
