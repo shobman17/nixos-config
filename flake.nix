@@ -16,18 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    elanmoc2 = {
-      url = "github:sandptel/elanmoc2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-xilinx = {
-      url = "gitlab:doronbehar/nix-xilinx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -53,7 +43,6 @@
           specialArgs = {inherit inputs outputs;};
           modules = [
             ./configuration.nix
-            inputs.elanmoc2.nixosModules.elanmoc2
             inputs.stylix.nixosModules.stylix 
 
           ];

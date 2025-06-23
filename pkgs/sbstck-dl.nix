@@ -11,10 +11,10 @@ buildGoModule rec {
     owner = "alexferrari88";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-5mVTVjaFao9XhC6b8XoDRMEaIpg1auM7RsJKw3SAlL4="; # Placeholder, update with actual hash
+    hash = "sha256-5mVTVjaFao9XhC6b8XoDRMEaIpg1auM7RsJKw3SAlL4=";
   };
 
-  vendorHash = "sha256-eNcINIRo/g0LFoEkh1KBob/rQSdkTsSonUogHXwD770="; # Placeholder, update after build
+  vendorHash = "sha256-eNcINIRo/g0LFoEkh1KBob/rQSdkTsSonUogHXwD770=";
 
   meta = with lib; {
     description = "CLI tool for downloading Substack newsletters for archival, offline reading, or data analysis";
