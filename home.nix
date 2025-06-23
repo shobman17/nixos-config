@@ -60,10 +60,22 @@
     gnomeExtensions.window-title-is-back
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.media-controls
-    gnomeExtensions.top-bar-organizer
+    (gnomeExtensions.top-bar-organizer.override {
+      version = 13;
+      sha256 = "sha256-0AcyqJaC37KQur1egVW1uCCk7oPJfRHAHZRV34ZVShU=";
+      metadata = "ewogICJfZ2VuZXJhdGVkIjogIkdlbmVyYXRlZCBieSBTd2VldFRvb3RoLCBkbyBub3QgZWRpdCIs
+CiAgImRlc2NyaXB0aW9uIjogIk9yZ2FuaXplIHRoZSBpdGVtcyBvZiB0aGUgdG9wIChtZW51KWJh
+ci4iLAogICJuYW1lIjogIlRvcCBCYXIgT3JnYW5pemVyIiwKICAic2V0dGluZ3Mtc2NoZW1hIjog
+Im9yZy5nbm9tZS5zaGVsbC5leHRlbnNpb25zLnRvcC1iYXItb3JnYW5pemVyIiwKICAic2hlbGwt
+dmVyc2lvbiI6IFsKICAgICI0NSIsCiAgICAiNDYiLAogICAgIjQ3IiwKICAgICI0OCIKICBdLAog
+ICJ1cmwiOiAiaHR0cHM6Ly9naXRsYWIuZ25vbWUub3JnL2p1bmUvdG9wLWJhci1vcmdhbml6ZXIi
+LAogICJ1dWlkIjogInRvcC1iYXItb3JnYW5pemVyQGp1bGlhbi5nc2UuanN0cy54eXoiLAogICJ2
+ZXJzaW9uIjogMTMKfQ==";
+      })
     gnomeExtensions.open-bar
     gnomeExtensions.window-gestures
     gnomeExtensions.user-themes
+    gnomeExtensions.privacy-indicators-accent-color
 
 # lua
     lua
@@ -106,6 +118,7 @@
     nix-search-tv
     qbittorrent
     discord
+    sbstck-dl
 
   ];
 
@@ -145,11 +158,7 @@
 
       font = {
         normal = ["JuliaMono"];
-        size = 11.0;
-      };
-
-      box-drawing = {
-        mode = "font-glyph";
+        size = 11;
       };
 
       maximised = true;
@@ -265,6 +274,7 @@
             screenshot-window-sizer.extensionUuid
             window-gestures.extensionUuid
             user-themes.extensionUuid
+            privacy-indicators-accent-color.extensionUuid
         ];
       };
 

@@ -5,6 +5,8 @@
   stylix = {
     
     targets.neovim.enable = false;
+    targets.neovide.enable = false;
+    targets.vim.enable = false;
     targets.kitty.variant256Colors = true;
     targets.vscode.enable = false;
     targets.gnome.enable = false;

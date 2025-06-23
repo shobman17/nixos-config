@@ -45,7 +45,7 @@
       # Custom overlays
       overlays = import ./overlays {inherit inputs;};
 
-      # packages = import ./pkgs nixpkgs.legacyPackages.${system};
+      packages = import ./pkgs nixpkgs.legacyPackages.${system};
 
       # Output for the system configuration 
       nixosConfigurations = {

@@ -10,6 +10,7 @@
       ./custom/immich.nix
       # ./custom/kavita.nix
       ./custom/syncthing.nix
+      # ./custom/paperless.nix
       ./custom/theme_common.nix
       ./custom/theme_nixos.nix
     ];
@@ -239,5 +240,7 @@
   boot.loader.timeout = 0;
   # limit storage of journald 
   services.journald.extraConfig = "SystemMaxUse=50M";
+
+  services.usbmuxd.enable = true;
 
 }
